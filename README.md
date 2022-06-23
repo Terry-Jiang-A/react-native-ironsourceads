@@ -14,7 +14,7 @@ npm install react-native-ironsourceads
 import Ironsourceads from "react-native-ironsourceads";
   
   //Initialize SDK
-  Ironsourceads.initialize(SDK_KEY, (callback) => { //second parameter for test mode, 1 default. 0 for production.
+  Ironsourceads.initialize(SDK_KEY, (callback) => {
     setIsInitialized(true);
     logStatus('SDK Initialized: '+ callback);
 
