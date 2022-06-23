@@ -4,6 +4,7 @@ buildscript {
             google()
             mavenCentral()
             jcenter()
+
         }
 
         dependencies {
@@ -51,9 +52,14 @@ repositories {
     google()
     mavenCentral()
     jcenter()
+    maven {
+      url 'https://android-sdk.is.com/'
+    }
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.aar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    //implementation 'com.ironsource.sdk:mediationsdk:7.2.2'
 }
