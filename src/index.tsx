@@ -18,22 +18,22 @@ const Ironsourceads = NativeModules.Ironsourceads
     );
 
 const emitter = new NativeEventEmitter(Ironsourceads);
-const subscriptions = {};
+const subScriptions = {};
 
 const addEventListener = (event, handler) => {
-  let subscription = emitter.addListener(event, handler);
-  let currentSubscription = subscriptions[event];
+  let subScription = emitter.addListener(event, handler);
+  let currentSubscription = subScriptions[event];
   if (currentSubscription) {
     currentSubscription.remove();
   }
-  subscriptions[event] = subscription;
+  subScriptions[event] = subScription;
 };
 
 const removeEventListener = (event) => {
-  let currentSubscription = subscriptions[event];
+  let currentSubscription = subScriptions[event];
   if (currentSubscription) {
     currentSubscription.remove();
-    delete subscriptions[event];
+    delete subScriptions[event];
   }
 };
 

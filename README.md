@@ -23,65 +23,65 @@ import Ironsourceads from "react-native-ironsourceads";
   });
   
     //Attach ad Listeners for rewarded ads, and banner ads, and so on.
-    function attachAdListeners() {
-    Ironsourceads.addEventListener('OninterstitialDidFailToLoad', (adInfo) => {
+    function attachAdListeners() {　
+    Ironsourceads.addEventListener('onInterstitialDidFailToLoad', (adInfo) => {
       logStatus('Ad fail to Loaded: ' +adInfo.error);
     });
 
 
-    Ironsourceads.addEventListener('OninterstitialDidFailToShow', (adInfo) => {
+    Ironsourceads.addEventListener('onInterstitialDidFailToShow', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.completed);
       logStatus('Ads fail to show: ' +adInfo.error);
       
     });
-    Ironsourceads.addEventListener('OninterstitialDidOpen', (adInfo) => {
+    Ironsourceads.addEventListener('onInterstitialDidOpen', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.failed);
       logStatus('Ads did open');
       
     });
-    Ironsourceads.addEventListener('OninterstitialDidShow', (adInfo) => {
+    Ironsourceads.addEventListener('onInterstitialDidShow', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.start);
       logStatus('Ads did show  ');
     });
-    Ironsourceads.addEventListener('OndidClickInterstitial', (adInfo) => {
+    Ironsourceads.addEventListener('onDidClickInterstitial', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.click);
       logStatus('Ads did click');
     });
-    Ironsourceads.addEventListener('OninterstitialDidClose', (adInfo) => {
+    Ironsourceads.addEventListener('onInterstitialDidClose', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.click);
       logStatus('Ads did close');
     });
 
 
     //reward video Listeners
-    Ironsourceads.addEventListener('OnrewardedVideoDidFailToShow', (adInfo) => {
+    Ironsourceads.addEventListener('onRewardedVideoDidFailToShow', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.completed);
       logStatus('Ads fail to show: ' +adInfo.error);
       
     });
-    Ironsourceads.addEventListener('OnrewardedVideoDidOpen', (adInfo) => {
+    Ironsourceads.addEventListener('onRewardedVideoDidOpen', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.click);
       logStatus('Ads did open');
     });
-    Ironsourceads.addEventListener('OnrewardedVideoDidClose', (adInfo) => {
+    Ironsourceads.addEventListener('onRewardedVideoDidClose', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.completed);
       logStatus('reward info: ' +adInfo);
       
     });
-    Ironsourceads.addEventListener('OnrewardedVideoDidStart', (adInfo) => {
+    Ironsourceads.addEventListener('onRewardedVideoDidClose', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.click);
       logStatus('Ads did start');
     });
-    Ironsourceads.addEventListener('OnrewardedVideoDidEnd', (adInfo) => {
+    Ironsourceads.addEventListener('onRewardedVideoDidEnd', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.click);
       logStatus('Ads did end');
     });
-    Ironsourceads.addEventListener('OndidClickRewardedVideo', (adInfo) => {
+    Ironsourceads.addEventListener('onDidClickRewardedVideo', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.completed);
       logStatus('did click: ' +adInfo.info);
       
     });
-    Ironsourceads.addEventListener('OndidReceiveRewardForPlacement', (adInfo) => {
+    Ironsourceads.addEventListener('onDidReceiveRewardForPlacement', (adInfo) => {
       //setIronsourceadshowCompleteState(adsShowState.completed);
       logStatus('reward name: ' +adInfo.rewardName + ' reward amount: '+adInfo.rewardAmount);
       
@@ -90,23 +90,23 @@ import Ironsourceads from "react-native-ironsourceads";
    
 
     // Banner Ad Listeners
-    Ironsourceads.addEventListener('OnbannerDidLoad', (adInfo) => {
+    Ironsourceads.addEventListener('onBannerDidLoad', (adInfo) => {
       logStatus('Banner ad loaded ');
       setIsNativeUIBannerShowing(!isNativeUIBannerShowing);
     });
-    Ironsourceads.addEventListener('OnbannerDidFailToLoad', (adInfo) => {
+    Ironsourceads.addEventListener('onBannerDidFailToLoad', (adInfo) => {
       logStatus('Banner ad fail to loaded ' +adInfo.error);
     });
-    Ironsourceads.addEventListener('OnbannerWillPresentScreen', (Info) => {
+    Ironsourceads.addEventListener('onBannerWillPresentScreen', (Info) => {
       logStatus('Banner will present screen ');
     });
-    Ironsourceads.addEventListener('OndidClickBanner', (adInfo) => {
+    Ironsourceads.addEventListener('onDidClickBanner', (adInfo) => {
       logStatus('Banner ad clicked');
     });
-    Ironsourceads.addEventListener('OnbannerDidDismissScreen', (adInfo) => {
+    Ironsourceads.addEventListener('onBannerDidDismissScreen', (adInfo) => {
       logStatus('Banner full screen content dissmissed');
     });
-    Ironsourceads.addEventListener('OnbannerWillLeaveApplication', (adInfo) => {
+    Ironsourceads.addEventListener('onBannerWillLeaveApplication', (adInfo) => {
       logStatus('Called when a user would be taken out of the application context');
     });
 

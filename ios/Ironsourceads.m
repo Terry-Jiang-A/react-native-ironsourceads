@@ -29,7 +29,7 @@
 static NSString *const SDK_TAG = @"Ironsource　Sdk";
 static NSString *const TAG = @"Ironsource Ads";
 
-RCTResponseSenderBlock _onInitialized = nil;
+RCTResponseSenderBlock _onIronsourceAdsInitialized = nil;
 
 static Ironsourceads *IronsourceShared; // Shared instance of this bridge module.
 
@@ -77,7 +77,7 @@ RCT_EXPORT_METHOD(initialize :(NSString *)sdkKey :(RCTResponseSenderBlock)callba
     }
     
     self.pluginInitialized = YES;
-    _onInitialized = callback;
+    _onIronsourceAdsInitialized = callback;
     
     [ISSupersonicAdsConfiguration configurations].useClientSideCallbacks = @(YES);
 
@@ -158,7 +158,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 - (void)didReceiveRewardForPlacement:(ISPlacementInfo *)placementInfo {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
     self.rvPlacementInfo = placementInfo;
-    [self sendReactNativeEventWithName: @"OndidReceiveRewardForPlacement" body: @{@"rewardName" : self.rvPlacementInfo.rewardName,@"rewardAmount" : self.rvPlacementInfo.rewardAmount}];
+    [self sendReactNativeEventWithName: @"onDidReceiveRewardForPlacement" body: @{@"rewardName" : self.rvPlacementInfo.rewardName,@"rewardAmount" : self.rvPlacementInfo.rewardAmount}];
     
 }
 
@@ -167,7 +167,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // our knowledge center for help.
 - (void)rewardedVideoDidFailToShowWithError:(NSError *)error {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnrewardedVideoDidFailToShow" body: @{@"error" : error}];
+    [self sendReactNativeEventWithName: @"onRewardedVideoDidFailToShow" body: @{@"error" : error}];
     
 }
 
@@ -175,7 +175,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // the video has started playing.
 - (void)rewardedVideoDidOpen {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnrewardedVideoDidOpen" body: nil];
+    [self sendReactNativeEventWithName: @"onRewardedVideoDidOpen" body: nil];
     
 }
 
@@ -192,7 +192,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
                                               otherButtonTitles:nil];
         [alert show];
         
-        [self sendReactNativeEventWithName: @"OnrewardedVideoDidClose" body: nil];
+        [self sendReactNativeEventWithName: @"onRewardedVideoDidClose" body: nil];
 
         self.rvPlacementInfo = nil;
     }
@@ -201,21 +201,21 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // This method gets invoked when the video has started playing.
 - (void)rewardedVideoDidStart {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnrewardedVideoDidStart" body: nil];
+    [self sendReactNativeEventWithName: @"onRewardedVideoDidStart" body: nil];
     
 }
 
 // This method gets invoked when the video has stopped playing.
 - (void)rewardedVideoDidEnd {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnrewardedVideoDidEnd" body: nil];
+    [self sendReactNativeEventWithName: @"onRewardedVideoDidEnd" body: nil];
     
 }
 
 // This method gets invoked after a video has been clicked
 - (void)didClickRewardedVideo:(ISPlacementInfo *)placementInfo {
     //NSLog(@"%s", __PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OndidClickRewardedVideo" body: @{@"info" : placementInfo}];
+    [self sendReactNativeEventWithName: @"onDidClickRewardedVideo" body: @{@"info" : placementInfo}];
     
 }
 
@@ -231,20 +231,20 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 - (void)interstitialDidFailToLoadWithError:(NSError *)error {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self sendReactNativeEventWithName: @"OninterstitialDidFailToLoad" body: @{@"error" : error}];
+        [self sendReactNativeEventWithName: @"onInterstitialDidFailToLoad" body: @{@"error" : error}];
     });
 }
 
 - (void)interstitialDidOpen {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OninterstitialDidOpen" body: nil];
+    [self sendReactNativeEventWithName: @"onInterstitialDidOpen" body: nil];
     
 }
 
 // The method will be called each time the Interstitial windows has opened successfully.
 - (void)interstitialDidShow {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OninterstitialDidShow" body: nil];
+    [self sendReactNativeEventWithName: @"onInterstitialDidShow" body: nil];
     
 }
 
@@ -253,14 +253,14 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // Knowledge center.
 - (void)interstitialDidFailToShowWithError:(NSError *)error {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OninterstitialDidFailToShow" body: @{@"error" : error}];
+    [self sendReactNativeEventWithName: @"onInterstitialDidFailToShow" body: @{@"error" : error}];
     
 }
 
 // This method will be called each time the user had clicked the Interstitial ad.
 - (void)didClickInterstitial {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OndidClickInterstitial" body: nil];
+    [self sendReactNativeEventWithName: @"onDidClickInterstitial" body: nil];
     
 }
 
@@ -268,7 +268,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // returns to your application.
 - (void)interstitialDidClose {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OninterstitialDidClose" body: nil];
+    [self sendReactNativeEventWithName: @"onInterstitialDidClose" body: nil];
     
 }
 
@@ -287,7 +287,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
             [self.bannerView setCenter:CGPointMake(ROOT_VIEW_CONTROLLER.view.center.x,ROOT_VIEW_CONTROLLER.view.frame.size.height - (self.bannerView.frame.size.height/2.0))];
         }
         [ROOT_VIEW_CONTROLLER.view addSubview:self.bannerView];
-        [self sendReactNativeEventWithName: @"OnbannerDidLoad" body: nil];
+        [self sendReactNativeEventWithName: @"onBannerDidLoad" body: nil];
         
     });
 }
@@ -298,7 +298,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
  */
 - (void)bannerDidFailToLoadWithError:(NSError *)error {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnbannerDidFailToLoad" body: @{@"error" : error}];
+    [self sendReactNativeEventWithName: @"onBannerDidFailToLoad" body: @{@"error" : error}];
     
 }
 
@@ -307,7 +307,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
  */
 - (void)didClickBanner {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OndidClickBanner" body: nil];
+    [self sendReactNativeEventWithName: @"onDidClickBanner" body: nil];
     
 }
 
@@ -316,7 +316,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
  */
 - (void)bannerWillPresentScreen {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnbannerWillPresentScreen" body: nil];
+    [self sendReactNativeEventWithName: @"onBannerWillPresentScreen" body: nil];
     
 }
 
@@ -325,7 +325,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
  */
 - (void)bannerDidDismissScreen {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnbannerDidDismissScreen" body: nil];
+    [self sendReactNativeEventWithName: @"onBannerDidDismissScreen" body: nil];
     
 }
 
@@ -334,7 +334,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
  */
 - (void)bannerWillLeaveApplication {
     //NSLog(@"%s",__PRETTY_FUNCTION__);
-    [self sendReactNativeEventWithName: @"OnbannerWillLeaveApplication" body: nil];
+    [self sendReactNativeEventWithName: @"onBannerWillLeaveApplication" body: nil];
     
 }
 
@@ -342,7 +342,7 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // Invoked after init mediation completed
 - (void)initializationDidComplete {
     self.sdkInitialized = YES;
-    _onInitialized(@[@" success"]);
+    _onIronsourceAdsInitialized(@[@" success"]);
 }
 
 #pragma mark - React Native Event Bridge
@@ -355,28 +355,28 @@ RCT_EXPORT_METHOD(unLoadBottomBanner)
 // From RCTBridgeModule protocol
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"OninterstitialDidFailToLoad",
-             @"OninterstitialDidFailToShow",
+    return @[@"onInterstitialDidFailToLoad",
+             @"onInterstitialDidFailToShow",
              
-             @"OninterstitialDidOpen",
-             @"OninterstitialDidShow",
-             @"OndidClickInterstitial",
-             @"OninterstitialDidClose",
+             @"onInterstitialDidOpen",
+             @"onInterstitialDidShow",
+             @"onDidClickInterstitial",
+             @"onInterstitialDidClose",
              
-             @"OnrewardedVideoDidFailToShow",
-             @"OnrewardedVideoDidOpen",
-             @"OnrewardedVideoDidClose",
-             @"OnrewardedVideoDidStart",
-             @"OndidReceiveRewardForPlacement",
+             @"onRewardedVideoDidFailToShow",
+             @"onRewardedVideoDidOpen",
+             @"onRewardedVideoDidClose",
+             @"onRewardedVideoDidStart",
+             @"onDidReceiveRewardForPlacement",
              
-             @"OnrewardedVideoDidEnd",
-             @"OndidClickRewardedVideo",
-             @"OnbannerDidFailToLoad",
-             @"OnbannerDidLoad",
-             @"OndidClickBanner",
-             @"OnbannerWillPresentScreen",
-             @"OnbannerDidDismissScreen",
-             @"OnbannerWillLeaveApplication",];
+             @"onRewardedVideoDidEnd",
+             @"onDidClickRewardedVideo",
+             @"onBannerDidFailToLoad",
+             @"onBannerDidLoad",
+             @"onDidClickBanner",
+             @"onBannerWillPresentScreen",
+             @"onBannerDidDismissScreen",
+             @"onBannerWillLeaveApplication",];
 }
 
 - (void)startObserving

@@ -234,7 +234,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "message", "" );
 
-                sendReactNativeEvent( "OnbannerDidLoad", params );
+                sendReactNativeEvent( "onBannerDidLoad", params );
               }
 
               @Override
@@ -243,7 +243,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "error", error.getErrorMessage() );
 
-                sendReactNativeEvent( "OnbannerDidFailToLoad", params );
+                sendReactNativeEvent( "onBannerDidFailToLoad", params );
               }
 
               @Override
@@ -252,7 +252,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "message", "" );
 
-                sendReactNativeEvent( "OndidClickBanner", params );
+                sendReactNativeEvent( "onDidClickBanner", params );
               }
 
               @Override
@@ -261,7 +261,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "message", "" );
 
-                sendReactNativeEvent( "OnbannerWillPresentScreen", params );
+                sendReactNativeEvent( "onBannerWillPresentScreen", params );
               }
 
               @Override
@@ -270,7 +270,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "message", "" );
 
-                sendReactNativeEvent( "OnbannerDidDismissScreen", params );
+                sendReactNativeEvent( "onBannerDidDismissScreen", params );
               }
 
               @Override
@@ -279,7 +279,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
                 WritableMap params = Arguments.createMap();
                 params.putString( "message", "" );
 
-                sendReactNativeEvent( "OnbannerWillLeaveApplication", params );
+                sendReactNativeEvent( "onBannerWillLeaveApplication", params );
               }
             });
 
@@ -361,7 +361,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "error", ironSourceError.getErrorMessage() );
 
-      sendReactNativeEvent( "OninterstitialDidFailToLoad", params );
+      sendReactNativeEvent( "onInterstitialDidFailToLoad", params );
 
     }
 
@@ -370,7 +370,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OninterstitialDidOpen", params );
+      sendReactNativeEvent( "onInterstitialDidOpen", params );
 
     }
 
@@ -379,7 +379,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OninterstitialDidClose", params );
+      sendReactNativeEvent( "onInterstitialDidClose", params );
 
     }
 
@@ -388,7 +388,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OninterstitialDidShow", params );
+      sendReactNativeEvent( "onInterstitialDidShow", params );
 
     }
 
@@ -397,7 +397,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "error", ironSourceError.getErrorMessage() );
 
-      sendReactNativeEvent( "OninterstitialDidFailToShow", params );
+      sendReactNativeEvent( "onInterstitialDidFailToShow", params );
 
     }
 
@@ -406,7 +406,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OndidClickInterstitial", params );
+      sendReactNativeEvent( "onDidClickInterstitial", params );
 
     }
 
@@ -415,7 +415,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OnrewardedVideoDidOpen", params );
+      sendReactNativeEvent( "onRewardedVideoDidOpen", params );
 
     }
 
@@ -424,7 +424,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OnrewardedVideoDidClose", params );
+      sendReactNativeEvent( "onRewardedVideoDidClose", params );
 
     }
 
@@ -442,7 +442,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OnrewardedVideoDidStart", params );
+      sendReactNativeEvent( "onRewardedVideoDidStart", params );
 
     }
 
@@ -451,7 +451,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "message", "" );
 
-      sendReactNativeEvent( "OnrewardedVideoDidEnd", params );
+      sendReactNativeEvent( "onRewardedVideoDidEnd", params );
 
     }
 
@@ -460,7 +460,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "info", "placeName: " +placement.getPlacementName() +"RewardName: " +placement.getRewardName()+ "RewardAmount: " +placement.getRewardAmount() );
 
-      sendReactNativeEvent( "OndidReceiveRewardForPlacement", params );
+      sendReactNativeEvent( "onDidReceiveRewardForPlacement", params );
 
     }
 
@@ -469,7 +469,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "error", ironSourceError.getErrorMessage() );
 
-      sendReactNativeEvent( "OnrewardedVideoDidFailToShow", params );
+      sendReactNativeEvent( "onRewardedVideoDidFailToShow", params );
 
     }
 
@@ -478,7 +478,7 @@ public class IronsourceadsModule extends ReactContextBaseJavaModule implements R
       WritableMap params = Arguments.createMap();
       params.putString( "info", "placeName: " +placement.getPlacementName() +"RewardName: " +placement.getRewardName()+ "RewardAmount: " +placement.getRewardAmount() );
 
-      sendReactNativeEvent( "OndidClickRewardedVideo", params );
+      sendReactNativeEvent( "onDidClickRewardedVideo", params );
 
     }
 
